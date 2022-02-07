@@ -1,0 +1,1418 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link href="css/estilos_ds.css" rel="stylesheet" />
+    <script src="https://code.iconify.design/2/2.1.2/iconify.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <link
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+  rel="stylesheet"
+  />
+  <link
+  href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+  rel="stylesheet"
+  />
+  <link
+  href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.10.2/mdb.min.css"
+  rel="stylesheet"
+  />
+    <title>Azul claro</title>
+<script async src='/cdn-cgi/bm/cv/669835187/api.js'></script><script async src='/cdn-cgi/bm/cv/669835187/api.js'></script></head>
+
+<body>
+
+    <header class="fixed-top" id="header">
+        <nav class="navbar navbar-expand-lg navbar-light" id="barra">
+            <div class="container-fluid">
+                <h1 class="navbar-brand logo" href=""><a href="index.html"> Azul Claro </a></h1>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="collapse navbar-collapse " id="navbarNavDropdown">
+                    <ul class="navbar-nav ms-auto jump">
+                        <li class="nav-item"><a class="nav-link scrollto" href="index.html#informacion">Información</a></li>
+                        <li class="nav-item"><a class="nav-link scrollto" href="index.html#informacion">Descripción</a></li>
+                        <li class="nav-item"><a class="nav-link scrollto" href="graficos.html">Graficos</a></li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link  dropdown-toggle scrollto" href="#"
+                                data-bs-toggle="dropdown"><span>Objetivos</span></a>
+                            <ul class="dropdown-menu">
+                                <li class="dropdown-item"><a href="datascience.html">Grafo</a></li>
+                                <li class="dropdown-item"><a href="datamining.html">Modelo</a></li>
+                                <li class="dropdown-item"><a href="tend.html">Transformación</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Navbar Final -->
+
+    <!-- ------Introduccion------ -->
+    <section id="introduccion" class="d-flex align-items-center">
+        <div class="container">
+            <div class="row row-flex">
+                <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1"
+                    data-aos="fade-up" data-aos-delay="200">
+                    <h1>Creación del grafo:</h1>
+                    <h4>Explicación de la construcción y generación del grafo</h4>
+                </div>
+                <div class="col-lg-6 order-1 order-lg-2 introduccion-img" data-aos="zoom-in" data-aos-delay="200">
+                    <img src="img/undraw_connected_world_wuay.svg" class="img-fluid animated" alt="" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="introduccion">
+        <div class="section-title">
+            <h2>Introducción</h2>
+        </div>
+        <div class="container">
+            <div class="row justify-content-around d-flex ">
+                <div class="col-lg-5 col-12 mt-2 align-self-stretch" id="caja-b" data-aos="zoom-in" data-aos-delay="100"
+                    data-aos-easing="ease-in-out" data-aos-offset="200">
+                    <p>
+                        Para la creación de posibles combinaciones entre productos se ha construido un grafo ponderado
+                        no dirigido, ya que se ha considerado que la relación entre dos prendas debe ser simétrica. Para
+                        ello, se han tomado como nodos las diferentes variaciones de productos presentes en la muestra
+                        tras la limpieza de datos, un total de 23.552.
+                    </p>
+                </div>
+                <div class="col-lg-5 col-12 mt-2 align-self-stretch" id="caja-b" data-aos="zoom-in" data-aos-delay="100"
+                    data-aos-easing="ease-in-out" data-aos-offset="200">
+                    <p>
+                        A la hora de crear las relaciones entre productos, se han definido 11 reglas, de las cuales 6
+                        sirven para determinar la existencia de una relación, mientras las 5 restantes están enfocadas a
+                        calcular el peso e dichas conexiones.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="reglae">
+        <div class="section-title">
+            <h2>Reglas de Eliminación</h2>
+        </div>
+        <div class="container">
+            <div class="row justify-content-around align-items-center">
+                <div class="col-lg-3 pepe align-middle" id="caja-g" data-aos="zoom-in" data-aos-delay="100"
+                    data-aos-easing="ease-in-out" data-aos-offset="200">
+                    <p>
+                        Para que una conexión entre 2 productos sea posible, ambos deben cumplir todas y cada una de las
+                        siguientes 6
+                        reglas, que comprueban la compatibilidad de ambos en materia de temporada, nivel de producto,
+                        talla, color,
+                        estampado y aplicación.
+                    </p>
+                </div>
+
+                <div class="col-lg-8 col-12" id="caja-g" data-aos="zoom-in" data-aos-delay="100"
+                    data-aos-easing="ease-in-out" data-aos-offset="200">
+                    <div class="accordion accordion-flush" id="accordionFlushExample">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="flush-headingOne">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#flush-collapseOne" aria-expanded="false"
+                                    aria-controls="flush-collapseOne">
+                                    Temporada
+                                </button>
+                            </h2>
+                            <div id="flush-collapseOne" class="accordion-collapse collapse"
+                                aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body">Ambos productos deben pertenecer la misma temporada.</div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="flush-headingTwo">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#flush-collapseTwo" aria-expanded="false"
+                                    aria-controls="flush-collapseTwo">
+                                    Nivel de producto
+                                </button>
+                            </h2>
+                            <div id="flush-collapseTwo" class="accordion-collapse collapse"
+                                aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body">
+                                    <div class="row mb-2">
+                                        <div class="col-lg-4 col-12 col-md-4 mt-2">
+                                            <div class="flip">
+                                                <div class="card" id="caja-flip-g">
+                                                    <div class="face front">
+                                                        <div class="inner text-center">
+                                                            <h2>Nivel 1</h2>
+                                                        </div>
+                                                    </div>
+                                                    <div class="face back">
+                                                        <div class="inner text-center">
+                                                            <ul class="list-group list-group-flush">
+                                                                <li>Pant</li>
+                                                                <li>Shorts</li>
+                                                                <li>Skirt</li>
+                                                                <li>Jeans</li>
+                                                                <li>Jumpsuit</li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4 col-12 col-md-4 mt-2 ">
+                                            <div class="flip">
+                                                <div class="card" id="caja-flip-g">
+                                                    <div class="face front">
+                                                        <div class="inner text-center">
+                                                            <h2>Nivel 2</h2>
+                                                        </div>
+                                                    </div>
+                                                    <div class="face back">
+                                                        <div class="inner text-center">
+                                                            <ul class="list-group list-group-flush">
+                                                                <li>Shirt</li>
+                                                                <li>Top</li>
+                                                                <li>T-shirt</li>
+                                                                <li>Sweatshirt</li>
+                                                                <li>Sweater</li>
+                                                                <li>Cardigan</li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4 col-12 col-md-4 mt-2">
+                                            <div class="flip">
+                                                <div class="card mb-2" id="caja-flip-g">
+                                                    <div class="face front">
+                                                        <div class="inner text-center">
+                                                            <h2>Nivel 3</h2>
+                                                        </div>
+                                                    </div>
+                                                    <div class="face back">
+                                                        <div class="inner text-center">
+                                                            <ul class="list-group list-group-flush">
+                                                                <li> Trench</li>
+                                                                <li> Coat</li>
+                                                                <li> Jacket</li>
+                                                                <li> Parka</li>
+                                                                <li> Bag</li>
+                                                                <li> Scarf</li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <p> Un look debe estar conformado por solo una prenda de nivel 1 complementada con
+                                        otras
+                                        dos prendas de nivel 2 o 3. Las prendas de nivel 1 están separadas en dos
+                                        categorías: 1.1 para prendas que cubren el tren superior y 1.2 para prendas de
+                                        cuerpo entero. Las prendas de nivel 1.1 serán combinables con el resto de
+                                        niveles
+                                        excepto con el que comparten categoría, 1.2. En cambio, aquellas prendas con
+                                        nivel
+                                        1.2 tan solo podrán combinarse con elementos de nivel 3, abrigos y complementos.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="flush-headingThree">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#flush-collapseThree" aria-expanded="false"
+                                    aria-controls="flush-collapseThree">
+                                    Talla
+                                </button>
+                            </h2>
+                            <div id="flush-collapseThree" class="accordion-collapse collapse"
+                                aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body">
+                                    <p>En caso de que la talla sea numérica, dos productos son similares si sus tallas
+                                        se encuentran en un rango numérico de 2, por ejemplo, las tallas 30 y 32 serían
+                                        combinables. En el caso de que un producto tenga talla única, será combinable
+                                        con cualquier otra de talla.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="flush-headingFour">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#flush-collapseFour" aria-expanded="false"
+                                    aria-controls="flush-collapseFour">
+                                    Color
+                                </button>
+                            </h2>
+                            <div id="flush-collapseFour" class="accordion-collapse collapse"
+                                aria-labelledby="flush-headingFour" data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body">
+                                    <p>Se ha creado una matriz de adyacencia que determina que colores son combinables
+                                        entre sí.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="flush-headingFive">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#flush-collapseFive" aria-expanded="false"
+                                    aria-controls="flush-collapseFive">
+                                    Estampado
+                                </button>
+                            </h2>
+                            <div id="flush-collapseFive" class="accordion-collapse collapse"
+                                aria-labelledby="flush-headingFive" data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body">
+                                    <p>Se ha creado una matriz de adyacencia que determina que estampados son
+                                        combinables entre sí.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="flush-headingSix">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#flush-collapseSix" aria-expanded="false"
+                                    aria-controls="flush-collapseSix">
+                                    Aplicación
+                                </button>
+                            </h2>
+                            <div id="flush-collapseSix" class="accordion-collapse collapse"
+                                aria-labelledby="flush-headingSix" data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body">
+                                    <p>Para tener en cuenta el tipo de uso al que está orientado una prenda, se ha
+                                        decidido que aquellos productos enfocados al uso laboral, con etiquetas Work y
+                                        Working Girl, pueden combinarse con prendas orientadas al uso en tiempo libre,
+                                        con etiqueta Freetime. Los productos con un uso enfocado a galas y ocasiones
+                                        especiales, con etiquetas Night y Special Occasion, también son compatibles
+                                        entre sí.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="reglar">
+        <div class="section-title">
+            <h2>Reglas de Relación</h2>
+        </div>
+        <div class="container">
+            <div class="row justify-content-around align-items-center">
+                <div class="col-lg-8 col-12" id="caja-b" data-aos="zoom-in" data-aos-delay="100"
+                    data-aos-easing="ease-in-out" data-aos-offset="200">
+                    <div class="accordion accordion-flush" id="accordionFlushExampler">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="flush-headingOner">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#flush-collapseOner" aria-expanded="false"
+                                    aria-controls="flush-collapseOner">
+                                    Éxito de producto
+                                </button>
+                            </h2>
+                            <div id="flush-collapseOner" class="accordion-collapse collapse"
+                                aria-labelledby="flush-headingOner" data-bs-parent="#accordionFlushExampler">
+                                <div class="accordion-body">Ambos productos deben pertenecer la misma temporada.</div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="flush-headingTwor">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#flush-collapseTwor" aria-expanded="false"
+                                    aria-controls="flush-collapseTwor">
+                                    Éxito de marca
+                                </button>
+                            </h2>
+                            <div id="flush-collapseTwor" class="accordion-collapse collapse"
+                                aria-labelledby="flush-headingTwor" data-bs-parent="#accordionFlushExampler">
+                                <div class="accordion-body">
+                                    <p> Un look debe estar conformado por solo una prenda de nivel 1 complementada con
+                                        otras
+                                        dos prendas de nivel 2 o 3. Las prendas de nivel 1 están separadas en dos
+                                        categorías: 1.1 para prendas que cubren el tren superior y 1.2 para prendas de
+                                        cuerpo entero. Las prendas de nivel 1.1 serán combinables con el resto de
+                                        niveles
+                                        excepto con el que comparten categoría, 1.2. En cambio, aquellas prendas con
+                                        nivel
+                                        1.2 tan solo podrán combinarse con elementos de nivel 3, abrigos y complementos.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="flush-headingThreer">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#flush-collapseThreer" aria-expanded="false"
+                                    aria-controls="flush-collapseThreer">
+                                    Weather
+                                </button>
+                            </h2>
+                            <div id="flush-collapseThreer" class="accordion-collapse collapse"
+                                aria-labelledby="flush-headingThreer" data-bs-parent="#accordionFlushExampler">
+                                <div class="accordion-body">
+                                    <p>En caso de que la talla sea numérica, dos productos son similares si sus tallas
+                                        se encuentran en un rango numérico de 2, por ejemplo, las tallas 30 y 32 serían
+                                        combinables. En el caso de que un producto tenga talla única, será combinable
+                                        con cualquier otra de talla.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="flush-headingFourr">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#flush-collapseFourr" aria-expanded="false"
+                                    aria-controls="flush-collapseFourr">
+                                    Estilo
+                                </button>
+                            </h2>
+                            <div id="flush-collapseFourr" class="accordion-collapse collapse"
+                                aria-labelledby="flush-headingFour" data-bs-parent="#accordionFlushExampler">
+                                <div class="accordion-body">
+                                    <p>Se ha creado una matriz de adyacencia que determina que colores son combinables
+                                        entre sí.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="flush-headingFiver">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#flush-collapseFiver" aria-expanded="false"
+                                    aria-controls="flush-collapseFiver">
+                                    Atrevimiento
+                                </button>
+                            </h2>
+                            <div id="flush-collapseFiver" class="accordion-collapse collapse"
+                                aria-labelledby="flush-headingFiver" data-bs-parent="#accordionFlushExampler">
+                                <div class="accordion-body">
+                                    <p>Se ha creado una matriz de adyacencia que determina que estampados son
+                                        combinables entre sí.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 pepe align-middle" id="caja-b" data-aos="zoom-in" data-aos-delay="100"
+                    data-aos-easing="ease-in-out" data-aos-offset="200">
+                    <p>
+                        De cumplirse estas 6 reglas, se crea una arista que relacione aquellos pares de productos que
+                        las cumplan, además de
+                        otorgar un peso base de 0.6 a la relación. A continuación se detallan las directrices empleadas
+                        para el cómputo del
+                        peso total de la relación:
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="resultados">
+        <div class="section-title">
+            <h2>Grafo</h2>
+        </div>
+        <div class="container">
+            <div class="row justify-content-around d-flex ">
+                <div class="col-lg-5 col-12 mt-2 align-self-stretch" id="caja-g" data-aos="zoom-in" data-aos-delay="100"
+                    data-aos-easing="ease-in-out" data-aos-offset="200">
+                    <p>
+                        Una vez establecidas todas las reglas, se ha realizado un filtrado para desechar aquellas
+                        aristas con un peso inferior a 0.8. Este planteamiento permite seleccionar aquellas relaciones
+                        más importantes, además de reducir considerablemente la muestra de aristas, que ha supuesto un
+                        problema en cuanto a coste computacional.
+                    </p>
+                </div>
+                <div class="col-lg-5 col-12 mt-2 align-self-stretch" id="caja-g" data-aos="zoom-in" data-aos-delay="100"
+                    data-aos-easing="ease-in-out" data-aos-offset="200">
+                    <p>
+                        La implementación de un grafo no dirigido se ha basado en un planteamiento orientado a la
+                        obtención de looks mediante la búsqueda de ciclos de longitud 3. De esta manera, se asegura que
+                        las 3 prendas sean compatibles entre sí, lo que aumenta las posibilidades de obtener
+                        combinaciones coherentes y relevantes. Tras realizar la búsqueda pertinente, se han seleccionado
+                        los ciclos que parten de un nodo de nivel 1, dado que existe la posibilidad de que elementos de
+                        niveles 2 y 3 formen ciclos entre sí.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="looks">
+        <div class="section-title">
+            <h2>Looks Generados</h2>
+        </div>
+        <div class="container">
+            <div class="row justify-content-around d-flex">
+                <div class="col-lg-3 col-12  align-self-center m-2" id="caja-b" data-aos="zoom-in" data-aos-delay="100" data-aos-easing="ease-in-out"
+                    data-aos-offset="200">
+                    <div class="row justify-content-around">
+                        <div class="col-lg-12 col-5 m-2 text-center" id="caja-g-text">
+                            <h1>4.180.570</h1>
+                            <h4>Aristas</h4>
+                        </div>
+                        <div class="col-lg-12 col-5 m-2 text-center" id="caja-g-text">
+                            <h1>1.348.436</h1>
+                            <h4>Estilos</h4>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-lg-8 col-12 order-2" id="caja-b" data-aos="zoom-in" data-aos-delay="100" data-aos-easing="ease-in-out"
+                    data-aos-offset="200">
+                    <div class="row justify-content-around m-2">
+                        <div class="col-12 align-self-center" id='caja-b' data-aos="zoom-in" data-aos-delay="100" data-aos-easing="ease-in-out"
+                        data-aos-offset="200">
+                            <div id="carouselExampleCaptions" class="carousel carousel-dark slide  " data-bs-ride="carousel">
+                                <div class="carousel-indicators">
+                                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+                                        aria-current="true" aria-label="Slide 1"></button>
+                                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+                                        aria-label="Slide 2"></button>
+                                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+                                        aria-label="Slide 3"></button>
+                                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3"
+                                        aria-label="Slide 4"></button>
+                                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="4"
+                                        aria-label="Slide 5"></button>
+                                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="5"
+                                        aria-label="Slide 6"></button>
+                                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="6"
+                                        aria-label="Slide 7"></button>
+                                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="7"
+                                        aria-label="Slide 8"></button>
+                                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="8"
+                                        aria-label="Slide 9"></button>
+                                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="9"
+                                        aria-label="Slide 10"></button>
+                                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="10"
+                                        aria-label="Slide 11"></button>
+                                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="11"
+                                        aria-label="Slide 12"></button>
+                                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="12"
+                                        aria-label="Slide 13"></button>
+                                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="13"
+                                        aria-label="Slide 14"></button>
+                                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="14"
+                                        aria-label="Slide 15"></button>
+                                </div>
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active">
+                                        <!--1-->
+                                        <table class="table text-center">
+                                            <thead>
+                                              <tr>
+                                                <th scope="col"></th>
+                                                <th scope="col">Luca Top cerise</th>
+                                                <th scope="col">Viamy Short chino </th>
+                                                <th scope="col">Cressida Jacket film </th>
+                                              </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <th scope="row"></td>
+                                                    <td class="w-25"><img src="img/top_black.png" class="img-fluid img-thumbnail" alt=""></td>
+                                                    <td class="w-25"><img src="img/shorts_brown.png" class="img-fluid img-thumbnail" alt=""></td>
+                                                    <td class="w-25"><img src="img/jacket_green.png" class="img-fluid img-thumbnail" alt=""></td>
+                                                  </tr>
+                                              <tr>
+                                                <th scope="row">Color</td>
+                                                <td>Black</td>
+                                                <td>Brown light</td>
+                                                <td>Green</td>
+                                              </tr>
+                                              <tr>
+                                                <th scope="row">Estampado</td>
+                                                <td>Smooth</td>
+                                                <td>Smooth</td>
+                                                <td>Other</td>
+                                              </tr>
+                                              <tr>
+                                                <th scope="row">Estilo</td>
+                                                <td>Classic</td>
+                                                <td>Classic</td>
+                                                <td>Classic</td>
+                                              </tr>
+                                              <tr>
+                                                <th scope="row">Éxito producto</td>
+                                                <td>0.5526</td>
+                                                <td>0.8</td>
+                                                <td>1.0</td>
+                                              </tr>
+                                              <tr>
+                                                <th scope="row">Éxito marca</td>
+                                                <td>0.4301</td>
+                                                <td>0.4251</td>
+                                                <td>0.3719</td>
+                                              </tr>
+                                              <tr>
+                                                <th scope="row">Nivel</td>
+                                                <td>2.1</td>
+                                                <td>1.1</td>
+                                                <td>3.1</td>
+                                              </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="carousel-item">
+                                        <!--2-->
+                                        <table class="table text-center">
+    <thead>
+      <tr>
+        <th scope="col"></th>
+        <th scope="col">Organic Cardigan rose</th>
+        <th scope="col">Alexandra Short stripe</th>
+        <th scope="col">Kawilla Shirt flower</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th scope="row"></td>
+            <td class="w-25"><img src="img/cardigan_blue_light.png" class="img-fluid img-thumbnail" alt=""></td>
+            <td class="w-25"><img src="img/shorts_white.png" class="img-fluid img-thumbnail" alt=""></td>
+            <td class="w-25"><img src="img/shirt_pink.png" class="img-fluid img-thumbnail" alt=""></td>
+          </tr>
+      <tr>
+        <th scope="row">Color</td>
+        <td>Blue light</td>
+        <td>White</td>
+        <td>Pink</td>
+      </tr>
+      <tr>
+        <th scope="row">Estampado</td>
+        <td>Smooth</td>
+        <td>Vertical stripes</td>
+        <td>Floral</td>
+      </tr>
+      <tr>
+        <th scope="row">Estilo</td>
+        <td>Boho</td>
+        <td>Boho</td>
+        <td>Boho</td>
+      </tr>
+      <tr>
+        <th scope="row">Éxito producto</td>
+        <td>1.0</td>
+        <td>0.5625</td>
+        <td>0.8333</td>
+      </tr>
+      <tr>
+        <th scope="row">Éxito marca</td>
+        <td>0.3904</td>
+        <td>0.4063</td>
+        <td>0.3641</td>
+      </tr>
+      <tr>
+        <th scope="row">Nivel</td>
+        <td>2.2</td>
+        <td>1.1</td>
+        <td>2.1</td>
+      </tr>
+    </tbody>
+                                        </table>
+
+                                    </div>
+                                    <div class="carousel-item">
+                                        <!--3-->
+                                        <table class="table text-center">
+    <thead>
+      <tr>
+        <th scope="col"></th>
+        <th scope="col">Woven Tshirt collar</th>
+        <th scope="col">Visofina Pant short</th>
+        <th scope="col">Cressida Jacket film</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th scope="row"></td>
+            <td class="w-25"><img src="img/tshirt_white.png" class="img-fluid img-thumbnail" alt=""></td>
+            <td class="w-25"><img src="img/shorts_black.png" class="img-fluid img-thumbnail" alt=""></td>
+            <td class="w-25"><img src="img/jacket_green.png" class="img-fluid img-thumbnail" alt=""></td>
+          </tr>
+      <tr>
+        <th scope="row">Color</td>
+        <td>White</td>
+        <td>Black</td>
+        <td>Green</td>
+      </tr>
+      <tr>
+        <th scope="row">Estampado</td>
+        <td>Smooth</td>
+        <td>Smooth</td>
+        <td>Other</td>
+      </tr>
+      <tr>
+        <th scope="row">Estilo</td>
+        <td>Classic</td>
+        <td>Classic</td>
+        <td>Classic</td>
+      </tr>
+      <tr>
+        <th scope="row">Éxito producto</td>
+        <td>1.0</td>
+        <td>0.8</td>
+        <td>1.0</td>
+      </tr>
+      <tr>
+        <th scope="row">Éxito marca</td>
+        <td>0.4245</td>
+        <td>0.4351</td>
+        <td>0.3719</td>
+      </tr>
+      <tr>
+        <th scope="row">Nivel</td>
+        <td>2.1</td>
+        <td>1.1</td>
+        <td>3.1</td>
+      </tr>
+    </tbody>
+                                        </table>    
+                                    </div>
+                                    <div class="carousel-item">
+                                        <!--4-->
+                                        <table class="table text-center">
+    <thead>
+      <tr>
+        <th scope="col"></th>
+        <th scope="col">Nadia Sweater neck</th>
+        <th scope="col">Arla Pant short</th>
+        <th scope="col">Mandala Jacket bomb</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th scope="row"></td>
+            <td class="w-25"><img src="img/sweater_mustand.png" class="img-fluid img-thumbnail" alt=""></td>
+            <td class="w-25"><img src="img/shorts_black.png" class="img-fluid img-thumbnail" alt=""></td>
+            <td class="w-25"><img src="img/jacket_white.png" class="img-fluid img-thumbnail" alt=""></td>
+          </tr>
+      <tr>
+        <th scope="row">Color</td>
+        <td>Mustand</td>
+        <td>Black</td>
+        <td>White</td>
+      </tr>
+      <tr>
+        <th scope="row">Estampado</td>
+        <td>Smooth</td>
+        <td>Smooth</td>
+        <td>Retro</td>
+      </tr>
+      <tr>
+        <th scope="row">Estilo</td>
+        <td>Boho</td>
+        <td>Boho</td>
+        <td>Boho</td>
+      </tr>
+      <tr>
+        <th scope="row">Éxito producto</td>
+        <td>0.3</td>
+        <td>0.3437</td>
+        <td>0.3777</td>
+      </tr>
+      <tr>
+        <th scope="row">Éxito marca</td>
+        <td>0.3904</td>
+        <td>0.4053</td>
+        <td>0.4334</td>
+      </tr>
+      <tr>
+        <th scope="row">Nivel</td>
+        <td>2.2</td>
+        <td>1.1</td>
+        <td>3.1</td>
+      </tr>
+    </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="carousel-item">
+                                        <!--5-->
+                                        <table class="table text-center">
+                                            <thead>
+                                            <tr>
+                                                <th scope="col"></th>
+                                                <th scope="col">Thomas Bag cahier</th>
+                                                <th scope="col">Florencia Jumpsuit uni</th>
+                                                <th scope="col">Mandala Jacket bomb</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <th scope="row"></td>
+                                                    <td class="w-25"><img src="img/bag_brown.png" class="img-fluid img-thumbnail" alt=""></td>
+                                                    <td class="w-25"><img src="img/jumpsuit_green.png" class="img-fluid img-thumbnail" alt=""></td>
+                                                    <td class="w-25"><img src="img/jacket_white.png" class="img-fluid img-thumbnail" alt=""></td>
+                                                </tr>
+                                            <tr>
+                                                <th scope="row">Color</td>
+                                                <td>Brown</td>
+                                                <td>Green dark</td>
+                                                <td>White</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Estampado</td>
+                                                <td>Smooth</td>
+                                                <td>Smooth</td>
+                                                <td>Retro</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Estilo</td>
+                                                <td>Boho</td>
+                                                <td>Boho</td>
+                                                <td>Boho</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Éxito producto</td>
+                                                <td>0.3046</td>
+                                                <td>0.3673</td>
+                                                <td>0.3979</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Éxito marca</td>
+                                                <td>0.3252</td>
+                                                <td>0.4245</td>
+                                                <td>0.4334</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Nivel</td>
+                                                <td>3.2</td>
+                                                <td>1.2</td>
+                                                <td>3.1</td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="carousel-item">
+                                        <!--6-->
+                                        <table class="table text-center">
+                                            <thead>
+                                            <tr>
+                                                <th scope="col"></th>
+                                                <th scope="col">Hurricane Jeans dark	</th>
+                                                <th scope="col">Vmdoffy Cardigan color	</th>
+                                                <th scope="col">Vmsimone Parka hoody</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <th scope="row"></td>
+                                                    <td class="w-25"><img src="img/jeans_blue_dark.png" class="img-fluid img-thumbnail" alt=""></td>
+                                                    <td class="w-25"><img src="img/cardigan_nude.png" class="img-fluid img-thumbnail" alt=""></td>
+                                                    <td class="w-25"><img src="img/parka_green.png" class="img-fluid img-thumbnail" alt=""></td>
+                                                </tr>
+                                            <tr>
+                                                <th scope="row">Color</td>
+                                                <td>Blue dark</td>
+                                                <td>Nude</td>
+                                                <td>Green dark</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Estampado</td>
+                                                <td>Smooth</td>
+                                                <td>Smooth</td>
+                                                <td>Smooth</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Estilo</td>
+                                                <td>Classic</td>
+                                                <td>Classic</td>
+                                                <td>Classic</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Éxito producto</td>
+                                                <td>1.0</td>
+                                                <td>0.8</td>
+                                                <td>1.0</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Éxito marca</td>
+                                                <td>0.2735</td>
+                                                <td>0.4659</td>
+                                                <td>0.4659</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Nivel</td>
+                                                <td>1.1</td>
+                                                <td>2.2</td>
+                                                <td>3.1</td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="carousel-item">
+                                        <!--7-->
+                                        <table class="table text-center">
+                                            <thead>
+                                            <tr>
+                                                <th scope="col"></th>
+                                                <th scope="col">Puff Tshirt rib</th>
+                                                <th scope="col">Organic Jeans skinny</th>
+                                                <th scope="col">Stsakko Cardigan basic</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <th scope="row"></td>
+                                                    <td class="w-25"><img src="img/tshirt_white.png" class="img-fluid img-thumbnail" alt=""></td>
+                                                    <td class="w-25"><img src="img/pant_khaki.png" class="img-fluid img-thumbnail" alt=""></td>
+                                                    <td class="w-25"><img src="img/cardigan_yellow.png" class="img-fluid img-thumbnail" alt=""></td>
+                                                </tr>
+                                            <tr>
+                                                <th scope="row">Color</td>
+                                                <td>White</td>
+                                                <td>Khaki</td>
+                                                <td>Lemon</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Estampado</td>
+                                                <td>Smooth</td>
+                                                <td>Smooth</td>
+                                                <td>Smooth</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Estilo</td>
+                                                <td>Classic</td>
+                                                <td>Classic</td>
+                                                <td>Classic</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Éxito producto</td>
+                                                <td>0.3448</td>
+                                                <td>0.2884</td>
+                                                <td>0.3703</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Éxito marca</td>
+                                                <td>0.3421</td>
+                                                <td>0.3338</td>
+                                                <td>0.4245</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Nivel</td>
+                                                <td>2.1</td>
+                                                <td>1.1</td>
+                                                <td>2.2</td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="carousel-item">
+                                        <!--8-->
+                                        <table class="table text-center">
+                                            <thead>
+                                            <tr>
+                                                <th scope="col"></th>
+                                                <th scope="col">Vilucy Shirt noos</th>
+                                                <th scope="col">Rizetta Jacket blazer</th>
+                                                <th scope="col">Tarama Pant grace</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <th scope="row"></td>
+                                                    <td class="w-25"><img src="img/shirt_white.png" class="img-fluid img-thumbnail" alt=""></td>
+                                                    <td class="w-25"><img src="img/jacket_gray.png" class="img-fluid img-thumbnail" alt=""></td>
+                                                    <td class="w-25"><img src="img/pant_khaki.png" class="img-fluid img-thumbnail" alt=""></td>
+                                                </tr>
+                                            <tr>
+                                                <th scope="row">Color</td>
+                                                <td>White</td>
+                                                <td>Gray</td>
+                                                <td>Khaki</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Estampado</td>
+                                                <td>Smooth</td>
+                                                <td>Horizontal stripes</td>
+                                                <td>Smooth</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Estilo</td>
+                                                <td>Classic</td>
+                                                <td>Classic</td>
+                                                <td>Classic</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Éxito producto</td>
+                                                <td>0.3636</td>
+                                                <td>0.0</td>
+                                                <td>0.3588</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Éxito marca</td>
+                                                <td>0.4351</td>
+                                                <td>0.4081</td>
+                                                <td>0.3691</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Nivel</td>
+                                                <td>2.1</td>
+                                                <td>3.1</td>
+                                                <td>1.1</td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="carousel-item">
+                                        <!--9-->
+                                        <table class="table text-center">
+                                            <thead>
+                                            <tr>
+                                                <th scope="col"></th>
+                                                <th scope="col">Vipeppa Shirt vil</th>
+                                                <th scope="col">Ihma Sweater nice</th>
+                                                <th scope="col">Tarama Pant grace</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <th scope="row"></td>
+                                                    <td class="w-25"><img src="img/shirt_blue_light.png" class="img-fluid img-thumbnail" alt=""></td>
+                                                    <td class="w-25"><img src="img/sweater_black.png" class="img-fluid img-thumbnail" alt=""></td>
+                                                    <td class="w-25"><img src="img/pant_khaki.png" class="img-fluid img-thumbnail" alt=""></td>
+                                                </tr>
+                                            <tr>
+                                                <th scope="row">Color</td>
+                                                <td>Blue light</td>
+                                                <td>Black</td>
+                                                <td>Khaki</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Estampado</td>
+                                                <td>Smooth</td>
+                                                <td>Smooth</td>
+                                                <td>Smooth</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Estilo</td>
+                                                <td>Classic</td>
+                                                <td>Classic</td>
+                                                <td>Classic</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Éxito producto</td>
+                                                <td>0.3848</td>
+                                                <td>0.4545</td>
+                                                <td>0.3588</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Éxito marca</td>
+                                                <td>0.4351</td>
+                                                <td>0.4212</td>
+                                                <td>0.3691</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Nivel</td>
+                                                <td>2.1</td>
+                                                <td>2.2</td>
+                                                <td>1.1</td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="carousel-item">
+                                        <!--10-->
+                                        <table class="table text-center">
+                                            <thead>
+                                            <tr>
+                                                <th scope="col"></th>
+                                                <th scope="col">Pcbillo Tshirt noos</th>
+                                                <th scope="col">Viril Cardigan knit</th>
+                                                <th scope="col">Bykeira Jeans jegging</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tbody>
+                                                    <tr>
+                                                        <th scope="row"></td>
+                                                        <td class="w-25"><img src="img/tshirt_echru.png" class="img-fluid img-thumbnail" alt=""></td>
+                                                        <td class="w-25"><img src="img/cardigan_red.png" class="img-fluid img-thumbnail" alt=""></td>
+                                                        <td class="w-25"><img src="img/jeans_black.png" class="img-fluid img-thumbnail" alt=""></td>
+                                                    </tr>
+                                            <tr>
+                                                <th scope="row">Color</td>
+                                                <td>Ecru</td>
+                                                <td>Red</td>
+                                                <td>Black</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Estampado</td>
+                                                <td>Horizontal stripes</td>
+                                                <td>Smooth</td>
+                                                <td>Smooth</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Estilo</td>
+                                                <td>Casual</td>
+                                                <td>Casual</td>
+                                                <td>casual</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Éxito producto</td>
+                                                <td>0.6875</td>
+                                                <td>0.7272</td>
+                                                <td>0.5833</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Éxito marca</td>
+                                                <td>0.4441</td>
+                                                <td>0.4351</td>
+                                                <td>0.4081</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Nivel</td>
+                                                <td>2.1</td>
+                                                <td>2.2</td>
+                                                <td>1.1</td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="carousel-item">
+                                        <!--11-->
+                                        <table class="table text-center">
+                                            <thead>
+                                            <tr>
+                                                <th scope="col"></th>
+                                                <th scope="col">Vmpleasent Sweater oneck</th>
+                                                <th scope="col">Bykeira Jeans jegging</th>
+                                                <th scope="col">Onlemma Parka crinkled</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <th scope="row"></td>
+                                                    <td class="w-25"><img src="img/sweater_grey_dark.png" class="img-fluid img-thumbnail" alt=""></td>
+                                                    <td class="w-25"><img src="img/jeans_blue_dark.png" class="img-fluid img-thumbnail" alt=""></td>
+                                                    <td class="w-25"><img src="img/parka_yellow.png" class="img-fluid img-thumbnail" alt=""></td>
+                                                </tr>
+                                            <tr>
+                                                <th scope="row">Color</td>
+                                                <td>Grey dark</td>
+                                                <td>Blue dark</td>
+                                                <td>Yellow</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Estampado</td>
+                                                <td>Horizontal stripes</td>
+                                                <td>Smooth</td>
+                                                <td>Smooth</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Estilo</td>
+                                                <td>Casual</td>
+                                                <td>Casual</td>
+                                                <td>casual</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Éxito producto</td>
+                                                <td>0.7</td>
+                                                <td>1.0</td>
+                                                <td>1.0</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Éxito marca</td>
+                                                <td>0.4659</td>
+                                                <td>0.4081</td>
+                                                <td>0.4488</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Nivel</td>
+                                                <td>2.2</td>
+                                                <td>1.1</td>
+                                                <td>3.1</td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="carousel-item">
+                                        <!--12-->
+                                        <table class="table text-center">
+                                            <thead>
+                                            <tr>
+                                                <th scope="col"></th>
+                                                <th scope="col">Vimovement Trench noos</th>
+                                                <th scope="col">Shamburgo Jeans solid</th>
+                                                <th scope="col">Shverenice Sweater knit</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <th scope="row"></td>
+                                                    <td class="w-25"><img src="img/trench_gray.png" class="img-fluid img-thumbnail" alt=""></td>
+                                                    <td class="w-25"><img src="img/jeans_blue_dark.png" class="img-fluid img-thumbnail" alt=""></td>
+                                                    <td class="w-25"><img src="img/sweater_mustand.png" class="img-fluid img-thumbnail" alt=""></td>
+                                                </tr>
+                                            <tr>
+                                            <tr>
+                                                <th scope="row">Color</td>
+                                                <td>Grey dark</td>
+                                                <td>Blue dark</td>
+                                                <td>Yellow</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Estampado</td>
+                                                <td>Smooth</td>
+                                                <td>Smooth</td>
+                                                <td>Smooth</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Estilo</td>
+                                                <td>Classic</td>
+                                                <td>Classic</td>
+                                                <td>Classic</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Éxito producto</td>
+                                                <td>0.3561</td>
+                                                <td>0.0</td>
+                                                <td>0.4666</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Éxito marca</td>
+                                                <td>0.4351</td>
+                                                <td>0.4325</td>
+                                                <td>0.4325</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Nivel</td>
+                                                <td>3.1</td>
+                                                <td>1.1</td>
+                                                <td>2.2</td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="carousel-item">
+                                        <!--13-->
+                                        <table class="table text-center">
+                                            <thead>
+                                              <tr>
+                                                <th scope="col"></th>
+                                                <th scope="col">Rhine Shirt wording</th>
+                                                <th scope="col">Likke Skirt denim</th>
+                                                <th scope="col">Onlemma Parka crinkled</th>
+                                              </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <th scope="row"></td>
+                                                    <td class="w-25"><img src="img/shirt_green.png" class="img-fluid img-thumbnail" alt=""></td>
+                                                    <td class="w-25"><img src="img/skirt_white.png" class="img-fluid img-thumbnail" alt=""></td>
+                                                    <td class="w-25"><img src="img/parka_yellow.png" class="img-fluid img-thumbnail" alt=""></td>
+                                                  </tr>
+                                              <tr>
+                                                <th scope="row">Color</td>
+                                                <td>Green dark</td>
+                                                <td>White</td>
+                                                <td>Yellow</td>
+                                              </tr>
+                                              <tr>
+                                                <th scope="row">Estampado</td>
+                                                <td>Smooth</td>
+                                                <td>Smooth</td>
+                                                <td>Smooth</td>
+                                              </tr>
+                                              <tr>
+                                                <th scope="row">Estilo</td>
+                                                <td>Casual</td>
+                                                <td>Casual</td>
+                                                <td>Casual</td>
+                                              </tr>
+                                              <tr>
+                                                <th scope="row">Éxito producto</td>
+                                                <td>0.5526</td>
+                                                <td>0.3823</td>
+                                                <td>1.0</td>
+                                              </tr>
+                                              <tr>
+                                                <th scope="row">Éxito marca</td>
+                                                <td>0.4245</td>
+                                                <td>0.4081</td>
+                                                <td>0.4488</td>
+                                              </tr>
+                                              <tr>
+                                                <th scope="row">Nivel</td>
+                                                <td>2.1</td>
+                                                <td>1.1</td>
+                                                <td>3.1</td>
+                                              </tr>
+                                            </tbody>
+                                        </table>
+
+                                    </div>
+                                    <div class="carousel-item">
+                                        <!--14-->
+                                        <table class="table text-center">
+                                            <thead>
+                                            <tr>
+                                                <th scope="col"></th>
+                                                <th scope="col">Poppy Short gj</th>
+                                                <th scope="col">Onlmaye Sweater knit</th>
+                                                <th scope="col">Vianna T-shirt solid</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <tr>
+                                                    <th scope="row"></td>
+                                                    <td class="w-25"><img src="img/shorts_blue_dark.png" class="img-fluid img-thumbnail" alt=""></td>
+                                                    <td class="w-25"><img src="img/sweater_beige.png" class="img-fluid img-thumbnail" alt=""></td>
+                                                    <td class="w-25"><img src="img/tshirt_white.png" class="img-fluid img-thumbnail" alt=""></td>
+                                                </tr>
+                                            <tr>
+                                                <th scope="row">Color</td>
+                                                <td>Blue dark</td>
+                                                <td>Beige</td>
+                                                <td>White</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Estampado</td>
+                                                <td>Smooth</td>
+                                                <td>Smooth</td>
+                                                <td>Smooth</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Estilo</td>
+                                                <td>Casual</td>
+                                                <td>Casual</td>
+                                                <td>Casual</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Éxito producto</td>
+                                                <td>0.5289</td>
+                                                <td>0.5357</td>
+                                                <td>0.0</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Éxito marca</td>
+                                                <td>0.3899</td>
+                                                <td>0.4488</td>
+                                                <td>0.4245</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Nivel</td>
+                                                <td>1.1</td>
+                                                <td>2.2</td>
+                                                <td>3.1</td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+
+                                    </div>
+                                    <div class="carousel-item">
+                                        <!--15-->
+                                        <table class="table text-center">
+                                            <thead>
+                                            <tr>
+                                                <th scope="col"></th>
+                                                <th scope="col">Lolus Jeans miss</th>
+                                                <th scope="col">Anwick Scarf closet</th>
+                                                <th scope="col">Nancy Jacket mid</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <th scope="row"></td>
+                                                <td class="w-25"><img src="img/jeans_grey_dark.png" class="img-fluid img-thumbnail" alt=""></td>
+                                                <td class="w-25"><img src="img/jacket_blue.png" class="img-fluid img-thumbnail" alt=""></td>
+                                                <td class="w-25"><img src="img/scarf_ochre.png" class="img-fluid img-thumbnail" alt=""></td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Color</td>
+                                                <td>Grey dark</td>
+                                                <td>Ochre</td>
+                                                <td>Blue</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Estampado</td>
+                                                <td>Smooth</td>
+                                                <td>Tropical</td>
+                                                <td>Smooth</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Estilo</td>
+                                                <td>Street</td>
+                                                <td>Street</td>
+                                                <td>Street</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Éxito producto</td>
+                                                <td>0.3871</td>
+                                                <td>0.4212</td>
+                                                <td>0.7142</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Éxito marca</td>
+                                                <td>0.4011</td>
+                                                <td>0.3898</td>
+                                                <td>0.3936</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Nivel</td>
+                                                <td>1.1</td>
+                                                <td>3.2</td>
+                                                <td>3.1</td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+                                    data-bs-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Previous</span>
+                                </button>
+                                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+                                    data-bs-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Next</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Reglas -->
+
+    <footer class="pagina-footer">
+        <p>Derechos reservados <a href="#">Equipo Azul claro.</p>
+
+    </footer>
+    <!--  Objetivos Final -->
+    <button type="button" class="btn btn-dark btn-floating btn-md" id="btn-back-to-top">
+        <i class="fa fa-arrow-up"></i>
+    </button>
+    <script src="js/scroll.js"></script>
+    <script src="js/script.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.10.2/mdb.min.js"></script>
+    <script>
+        $('.flip').click(function () {
+            $(this).find('.card').toggleClass('flipped');
+
+        });
+    </script>
+<script type="text/javascript">(function(){window['__CF$cv$params']={r:'6d944639e8513a17',m:'OGhwLqd9uC4353yH1oErWq87fup.i1gczoA.TBD8YvI-1644149416-0-AWFPuWArxjghQdV66aJe5NMZW8aDf4GOA2pNew6NeDt+14SgLynURtr/AOEyyrg6UDy8xKCN7pQSsx6Ry9jm2D1veqUnnyazdSwyytBMRRrtU6hqSUx2Heay7sa11QXV1c04sTRQu7KuhS/pWywc9ZrupaKkOEqR4HqujQMg3vIe2FXj5yGBIyacNRKde0CQVuFQiQve0RycQ9n/gbXdmlA=',s:[0x650e298057,0xe8fb42f291],}})();</script><script type="text/javascript">(function(){window['__CF$cv$params']={r:'6d9465382f1c32b8',m:'9.wivaG3jSz1.ZWTOiCjmvL4hUcW5tCCwZR0p7kMYJ0-1644150685-0-AbNd1h7FL3s6D0nLYksZ9eCwjh3tLiABVkudqKFoKltVGOZpO/IUfWvj2GNSSBoA87LP+tK4mICohwozaWxuahiBhykPenB2PCDcwBXQrUHtUTxv2ghTuJHflYIHRE3n8FrgZw+crEYEIu+RzyuhSzfZjBHONlbAvf174efYv1/zs4VxXZfb+FXCyJx0k5zPtUOauIN8zFMkjvtFF7ecob4=',s:[0x9bdf9da339,0x18543d1b0d],}})();</script></body>
+
+</html>

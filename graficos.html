@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link href="css/estilos_graph.css" rel="stylesheet" />
+    <script src="https://code.iconify.design/2/2.1.2/iconify.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.10.2/mdb.min.css" rel="stylesheet" />
+    <script src="https://d3js.org/d3.v4.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <title>Azul claro</title>
+</head>
+
+<body data-aos-easing="slide" data-aos-duration="800" data-aos-delay="0">
+
+    <header class="fixed-top" id="header">
+        <nav class="navbar navbar-expand-lg navbar-light" id="barra">
+            <div class="container-fluid">
+                <h1 class="navbar-brand logo" href=""><a href="index.html"> Azul Claro </a></h1>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="collapse navbar-collapse " id="navbarNavDropdown">
+                    <ul class="navbar-nav ms-auto jump">
+                        <li class="nav-item"><a class="nav-link scrollto" href="index.html#informacion">Información</a></li>
+                        <li class="nav-item"><a class="nav-link scrollto" href="index.html#informacion">Descripción</a></li>
+                        <li class="nav-item"><a class="nav-link scrollto" href="graficos.html">Graficos</a></li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link  dropdown-toggle scrollto" href="#"
+                                data-bs-toggle="dropdown"><span>Objetivos</span></a>
+                            <ul class="dropdown-menu">
+                                <li class="dropdown-item"><a href="datascience.html">Grafo</a></li>
+                                <li class="dropdown-item"><a href="datamining.html">Modelo</a></li>
+                                <li class="dropdown-item"><a href="tend.html">Transformación</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section id="introduccion" class="d-flex align-items-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-12 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1"
+                    data-aos="fade-up" data-aos-delay="200">
+                    <h1>Analisis descriptivo de los datos:</h1>
+                    <h4>Analisis mediante graficos de los datos proporcionados.</h4>
+                </div>
+                <div class="col-lg-6 order-1 order-lg-2 introduccion-img" data-aos="zoom-in" data-aos-delay="200">
+                    <img src="img/undraw_growth_analytics_re_pyxf.svg" class="img-fluid animated" alt="" />
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Navbar Final -->
+
+    <section id='seccion1' class="align-items-center">
+        <div class="container">
+            <div class="section-title">
+                <h2>Cantidad de prendas por tipo</h2>
+            </div>
+            <div class="row justify-content-around m-2">
+                <div class="col-lg-4 col-12 order-lg-1 order-2 align-self-center" id='caja-g' data-aos="zoom-in" data-aos-delay="0">
+                    <h2>
+                        Distribución prendas
+                    </h2>
+                    <p>Se ha observado la distribución de las prendas en base al tipo de producto al que pertenecen. Se puede apreciar cierta superioridad de las prendas para el tren superior, como los jerséis, camisetas y tops, siendo los productos menos frecuentes los complementos y los abrigos.
+                    </p>
+                </div>
+                <div class="col-lg-7  col-12 m-2 order-lg-2 order-1" data-aos="zoom-in" id='caja-g' data-aos-delay="0">
+                    <div id="barra1"></div>
+                </div>
+            </div>
+            <div class="row justify-content-around m-2">
+                <div class="col-lg-7 m-2" data-aos="zoom-in" id='caja-g' data-aos-delay="0">
+                    <div id="barra2"></div>
+                </div>
+
+                <div class="col-lg-4 order-2 align-self-center" id='caja-g' data-aos="zoom-in" data-aos-delay="0">
+                    <h2>
+                        Clima
+                    </h2>
+                    <p>Se ha analizado el comportamiento de los productos para cada una de las tres temporadas. Para ello, se han comparado los valores de la variable weather, que expresa el tipo de clima para el que está pensado una prenda, pudiendo tomar los valores cold, para climas fríos, y warm para climas más cálidos. Viendo la distribución de esta variable para cada una de las temporadas, se concluye que la temporada 8 corresponde a una época del año más invernal, dada la gran cantidad de productos de clima frío que presenta. Ocurre lo contrario con las prendas de tipo warm, cuya presencia es mayor en las temporadas 7 y 9.
+                    </p>
+                </div>
+            </div>           
+        </div>
+    </section>
+
+    <section id="seccion2">
+        <div class="container">
+            <div class="section-title">
+                <h2>Colores y estampados</h2>
+            </div>
+            <div class="row justify-content-around">
+                <div class="col-lg-4 order-lg-1 order-2 align-self-center" id='caja-b' data-aos="zoom-in" data-aos-delay="0">
+                    <h2>
+                        Colores
+                    </h2>
+                    <p>En el ámbito de los colores la igualdad es la tónica dominante, siendo el azul oscuro y el negro los colores por excelencia. La diferencia más significativa es la presencia del blanco en las temporadas 7 y 9. Además, los tonos oscuros como algunas variantes del marrón y el verde tienen una mayor presencia en la temporada 8.
+                    </p>
+                </div>
+                <div class="col-lg-7 order-lg-2  order-1 m-2" data-aos="zoom-in" id='caja-b' data-aos-delay="0">
+                    <div id="carouselExampleCaptions" class="carousel carousel-dark slide  " data-bs-ride="carousel">
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0"
+                                class="active" aria-current="true" aria-label="Slide 1"></button>
+                            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+                                aria-label="Slide 2"></button>
+                            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+                                aria-label="Slide 3"></button>
+                        </div>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <div id="season7"></div>
+                            </div>
+                            <div class="carousel-item">
+                                <div id="season8"></div>
+                            </div>
+                            <div class="carousel-item">
+                                <div id="season9"></div>
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+                            data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+                            data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-around">
+                <div class="col-lg-7 m-2" data-aos="zoom-in" id='caja-b' data-aos-delay="0">
+                    <div id="carouselExampleCaptions2" class="carousel carousel-dark slide  " data-bs-ride="carousel">
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#carouselExampleCaptions2" data-bs-slide-to="0"
+                                class="active" aria-current="true" aria-label="Slide 1"></button>
+                            <button type="button" data-bs-target="#carouselExampleCaptions2" data-bs-slide-to="1"
+                                aria-label="Slide 2"></button>
+                        </div>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <div id="barra3"></div>
+                            </div>
+                            <div class="carousel-item">
+                                <div id="barra4"></div>
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions2"
+                            data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions2"
+                            data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 order-2 align-self-center" id='caja-b' data-aos="zoom-in" data-aos-delay="0">
+                    <h2>
+                        Estampados
+                    </h2>
+                    <p>En el caso de los estampados también se puede notar cierta variación entre temporadas. El estampado smooth es el más popular, representando entre el 65 y el 80% en cada temporada, por lo que un detalle a tener en cuenta es la presencia de estampados secundarios. En la temporada 8, aparecen nuevos estampados como las rayas horizontales y el estampado animal, aunque sin ser muy representativos. Por otro lado, la presencia de otros estampados aumenta en las temporadas restantes, especialmente en la 7, y el estampado floral, muy popular en verano, adquiere una gran importancia. 
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="seccion3">
+        <div class="container">
+            <div class="section-title">
+                <h2>Ventas y devoluciones</h2>
+            </div>
+            <div class="row justify-content-around">
+                <div class="col-lg-4  order-lg-1 order-2 align-self-center" id='caja-g' data-aos="zoom-in" data-aos-delay="0">
+                    <h2>
+                        Envios y devoluciones
+                    </h2>
+                    <p>Se ha realizado un análisis sobre los envíos de cada marca por temporada. Para ello, se ha considerado como devolución la diferencia entre el total de envíos y ventas de cada producto. Observando el desempeño de cada firma, se aprecia que las marcas 15 y 19 tienden a ser bastante populares en cualquier época del año, seguidos de la 55, que pese a un peor desempeño en la temporada 7 destaca positivamente en las siguientes, proclamándose líder de ventas en la última de ellas.
+                    </p>
+                </div>
+                <div class="col-lg-7 order-lg-2 order-1 m-2" data-aos="zoom-in" id='caja-g' data-aos-delay="0">
+                    <div id="carouselExampleCaptions3" class="carousel carousel-dark slide  " data-bs-ride="carousel">
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#carouselExampleCaptions3" data-bs-slide-to="0"
+                                class="active" aria-current="true" aria-label="Slide 1"></button>
+                            <button type="button" data-bs-target="#carouselExampleCaptions3" data-bs-slide-to="1"
+                                aria-label="Slide 2"></button>
+                            <button type="button" data-bs-target="#carouselExampleCaptions3" data-bs-slide-to="2"
+                                aria-label="Slide 2"></button>
+                        </div>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <div id="barra75"></div>
+                            </div>
+                            <div class="carousel-item">
+                                <div id="barra85"></div>
+                            </div>
+                            <div class="carousel-item">
+                                <div id="barra95"></div>
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions3"
+                            data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions3"
+                            data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <footer class="pagina-footer">
+        <p>Derechos reservados <a href="#">Equipo Azul claro.</p>
+
+    </footer>
+
+    <!--  Objetivos Final -->
+    <button type="button" class="btn btn-dark btn-floating btn-md" id="btn-back-to-top">
+        <i class="fa fa-arrow-up"></i>
+    </button>
+    <script src="js/scroll.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/barra_graficos2.js"></script>
+    <script src="js/barra_grafico.js"></script>
+    <script src="js/tarta7_grafico.js"></script>
+    <script src="js/tarta8_grafico.js"></script>
+    <script src="js/tarta9_grafico.js"></script>
+    <script src="js/barra_grafico3.js"></script>
+    <script src="js/barra_grafico4.js"></script>
+    <script src="js/barra7_grafico5.js"></script>
+    <script src="js/barra8_grafico5.js"></script>
+    <script src="js/barra9_grafico5.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.10.2/mdb.min.js"></script>
+    <script>
+        $('.flip').click(function () {
+            $(this).find('.card').toggleClass('flipped');
+
+        });
+    </script>
+</body>
+
+</html>
