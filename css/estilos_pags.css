@@ -56,11 +56,6 @@ h1, h2, h3, h4, h5, h6, p {
   margin-bottom: 0;
 }
 
-
-
-
-
-
 /*
 -------Cabecera-------
 */
@@ -199,6 +194,7 @@ h1, h2, h3, h4, h5, h6, p {
   width: 25%;
   text-align: center;
 }
+
 #introduccion .empezar:hover {
   background: #6791A8;
 }
@@ -312,6 +308,12 @@ Introducción Final
   background-color: #EBF0F2;
 }
 
+#resultados{
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+
 @media (max-width: 768px) {
   .explicacion{
     padding-top: 5rem;
@@ -339,87 +341,6 @@ Introducción Final
   transform: translateY(-10px);
 }
 
-
-#categorias{
-  padding-top: 2rem;
-  padding-bottom: 2rem;
-  background-color: #EBF0F2;
-}
-
-li {
-  margin: 0;
-  padding: 0;
-}
-
-.flip {
-  -webkit-perspective: 800;   
-          perspective: 800;
-        position: relative;
-        text-align: center;
-}
-.flip .card.flipped {
-  -webkit-transform: rotatey(-180deg);
-          transform: rotatey(-180deg);
-}
-.flip .card {
-    margin: 1rem;
-    width: 100%;
-    height: 110%;
-    -webkit-transform-style: preserve-3d;
-    -webkit-transition: 0.5s;
-    transform-style: preserve-3d;
-    transition: 0.5s;
-    background-color: #fff;
-}
-.flip .card .face {
-  -webkit-backface-visibility: hidden ;
-    backface-visibility: hidden ;
-   z-index: 2;
-   margin: 1rem;
-}
-
-
-.flip .card .back {
-  -webkit-transform: rotatey(-180deg);
-          transform: rotatey(-180deg);
-  position: absolute;
-}
-
-.card{
-  display: flex;
-  align-items:center;
-  justify-content:center;
-}
-
-#caja-flip-g{
-  background:#fff;
-  padding: 3rem 1.5rem 3rem 1.5rem;
-  box-shadow: 0px 0 25px 0 rgba(0, 0, 0, 0.1);
-  transition: all ease-in-out 0.4s;
-}
-
-#caja-flip-superior{
-  background:#fff;
-  padding: 6rem 1.5rem 6rem 1.5rem;
-  box-shadow: 0px 0 25px 0 rgba(0, 0, 0, 0.1);
-  transition: all ease-in-out 0.4s;
-}
-
-#aceptacion{
-  padding-top: 2rem;
-  padding-bottom: 2rem;
-}
-
-#ventas{
-  padding-top: 2rem;
-  padding-bottom: 2rem;
-  background-color: #EBF0F2;
-}
-
-#estrategia{
-  padding-top: 2rem;
-  padding-bottom: 2rem;
-}
 
 /*
 -------Footer-------
